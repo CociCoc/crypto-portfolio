@@ -3,30 +3,24 @@ import ReactDOM from "react-dom/client";
 import './App.css';
 import {LogInButton} from './components/Battons';
 import NavBar from "./components/NavBar";
-import Home from "./components/Home"
-import About from "./components/About"
-import Tokens from "./components/Tokens"
+import Home from "./components/Home";
+import About from "./components/About";
+import Tokens from "./components/Tokens";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-    let component
-    switch (window.location.pathname) {
-        case "/":
-            component = <Home />
-            break
-        case "/tokens":
-            component = <Tokens />
-            break
-        case "/about":
-            component = <About />
-            break
-    }
+
         return (
     <>
 
-        <LogInButton />
+
         <NavBar />
         <div className="container">
-            {component}
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/About" element={<About />} />
+                <Route path="/Tokens" element={<Tokens />} />
+            </Routes>
         </div>
 
 
@@ -36,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
